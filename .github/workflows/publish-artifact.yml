@@ -1,0 +1,29 @@
+name: Publish Artifact
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build-artifact.yml
+
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: build
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+
+      - name: List files
+        run: ls -R
+
+      - name: Archive artifact
+        run: |
+          zip -r "proxy.zip" "proxy"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: proxy.zip

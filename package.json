@@ -1,0 +1,33 @@
+{
+  "name": "@virenbar/proxy",
+  "version": "1.0.0",
+  "author": "Virenbar",
+  "license": "MIT",
+  "repository": "https://github.com/Virenbar/proxy.git",
+  "main": "index.js",
+  "scripts": {
+    "build:clean": "del-cli build",
+    "build": "yarn build:clean && tsc -b",
+    "start": "node build/index.js",
+    "start:dev": "yarn build && node build/index.js"
+  },
+  "dependencies": {
+    "fastify": "^4.27.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/node": "^20.12.11",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "del-cli": "^5.1.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "private": "true"
+}

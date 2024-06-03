@@ -1,0 +1,6 @@
+{
+    "whitelist": [],
+    "mirror": {
+        "example": "https://example.com/"
+    }
+}
